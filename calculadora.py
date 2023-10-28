@@ -24,9 +24,12 @@ class Calculadora:
         return elevado  
     
     def verificar_numeros(self):
-        verificacao = (self.numero_um ^ self.numero_dois)
-        return verificacao  
-    
+        if not isinstance(self.numero_um, (int, float)):
+            print("O numero um não é válido")
+
+        if not isinstance(self.numero_dois, (int, float)):
+            print("O numero dois não é válido")
+
     def chamar_numero(self):
         self.numero_um = float(input("Digite primeiro numero: "))
         self.numero_dois = float(input("Digite segundo numero: "))
