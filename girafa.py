@@ -1,6 +1,13 @@
+import time
+from random import choice
+
 class Girafa:
     # Propriedades
-
+    nome
+    altura
+    idade
+    cor
+    origem
 
     # O método __init__ é executado quando a classe é instanciada
 
@@ -39,7 +46,20 @@ class Girafa:
             print(self.nome, "Está explodindo.")
 
     def respirar(self):
-        print(self.nome, "está viva..")
-    
-    def reproduzir(self):
-        print(self.nome, "está acasalando..")
+        print(self.nome, "Inspira..")
+        time.sleep(2)
+        print(self.nome, "Esxpira..")
+
+    # Função para reproduzir girafas, elas recebe um parceiro e retorna um filhote
+    def reproduzir(self, parceiro):
+        if not isinstance(parceiro, Girafa):
+            print(self.nome, "sai correndo desesperado")
+        
+        nome = "Filhote de " + self.nome
+        altura = (self.altura + parceiro.altura) / 2
+        idade = 1
+        cor = choice([self, parceiro]).cor
+        origem = self.origem
+
+        filhote = Girafa(nome, altura, idade, cor, origem)
+        return filhote
